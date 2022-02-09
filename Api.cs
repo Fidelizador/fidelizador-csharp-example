@@ -86,9 +86,6 @@ namespace FidelizadorApiClient {
             request.AddUrlSegment("listId", listId);
             request.AddHeader("Content-Type", "multipart/form-data");
             request.AddHeader("X-Client-Slug", _clientSlug);
-            //request.AddBody(new {
-            //    fields = new { EMAIL = "1", FIRSTNAME = "2" }
-            //});
             request.AddParameter("fields[EMAIL]", "0");
             request.AddParameter("fields[FIRSTNAME]", "1");
             request.AddFile("file", filePath, "text/csv");
