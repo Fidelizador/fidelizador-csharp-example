@@ -59,9 +59,8 @@ namespace FidelizadorApiClient {
             };
         }
 
-        public async Task<Lists> GetLists(string listName) {
+        public async Task<Lists?> GetLists() {
             var request = new RestRequest("1.0/list.json");
-            //request.AddParameter("name", listName);
             request.AddHeader("Content-Type", "application/json; charset=UTF-8");
             request.AddHeader("X-Client-Slug", _clientSlug);
 
@@ -69,7 +68,7 @@ namespace FidelizadorApiClient {
             return response;
         }
 
-        public async Task<List> CreateList(string name) {
+        public async Task<List?> CreateList(string name) {
             var request = new RestRequest("1.0/list.json", Method.Post);
             request.AddHeader("Content-Type", "application/json; charset=UTF-8");
             request.AddHeader("X-Client-Slug", _clientSlug);
@@ -82,7 +81,7 @@ namespace FidelizadorApiClient {
             return response;
         }
 
-        public async Task<string> StartImport(int listId, string filePath) {
+        public async Task<string?> StartImport(int listId, string filePath) {
             var request = new RestRequest("1.0/list/{listId}/import.json", Method.Post);
             request.AddUrlSegment("listId", listId);
             request.AddHeader("Content-Type", "multipart/form-data");
@@ -98,7 +97,7 @@ namespace FidelizadorApiClient {
             return response.Content;
         }
 
-        public async Task<string> CreateCampaign(string name, int campaignType, int listId, int categoryId, string subject, string toName, string replyTo, string fromEmail) {
+        public async Task<string?> CreateCampaign(string name, int campaignType, int listId, int categoryId, string subject, string toName, string replyTo, string fromEmail) {
             var request = new RestRequest("1.0/campaign.json", Method.Post);
             request.AddHeader("Content-Type", "application/json; charset=UTF-8");
             request.AddHeader("X-Client-Slug", _clientSlug);
@@ -118,7 +117,7 @@ namespace FidelizadorApiClient {
             return response.Content;
         }
 
-        public async Task<string> ScheduleCampaign(int campaignId, int sendNow) {
+        public async Task<string?> ScheduleCampaign(int campaignId, int sendNow) {
             var request = new RestRequest("1.0/campaign/{campaignId}/schedule.json", Method.Post);
             request.AddUrlSegment("campaignId", campaignId);
             request.AddHeader("Content-Type", "application/json; charset=UTF-8");
