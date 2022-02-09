@@ -14,6 +14,15 @@ This repository contains an example of how to use the API with C#, using the [Re
 
 See more api details at [postman doc](https://documenter.getpostman.com/view/5320495/Tzz5tyZ2), using the `C# - RestSharp` language option.
 
+## Configure credentials
+
+To test this example, replace the following variable values on `Program.cs`:
+```csharp
+    string client_id = "CLIENT_ID";
+    string client_secret = "CLIENT_SCRET";
+    string client_slug = "SLUG";
+```
+
 ## How to run on Linux
 
 If .net is installed as one of the options given by [microsoft](https://docs.microsoft.com/en-us/dotnet/core/install/linux), then use:
@@ -21,3 +30,7 @@ If .net is installed as one of the options given by [microsoft](https://docs.mic
 ```bash
 $ dotnet run
 ```
+
+## Tested On:
+
+* Ubuntu 20.04 with dotnet 6.0
